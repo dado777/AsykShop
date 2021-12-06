@@ -1,0 +1,79 @@
+﻿// Данный класс будет мокать, тобишь реализовать интерфейсы из папки Interfaces, дабы последствие извлечь данные из класса Asyk
+
+using AsykShop.Core.Interfaces;
+using AsykShop.Core.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace AsykShop.Core.Mocks
+{
+    public class MockAsyktar : IAllAsyktar
+    {
+        private readonly IAsyktarCategory _categoryAsyk = new MockCategory();
+        public IEnumerable<Asyk> Asyktar {
+            get {
+                return new List<Asyk>
+                    {
+                     new Asyk{
+                    AsykName = "СоқырМерген",
+                    AsykShortDesc = "Lorem ipsum dolor sit amet",
+                    AsykLongDesc = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ",
+                    AsykImage = "/AsykImage/1.jpg",
+                    AsykPrice = 589,
+                    isFavorAsyk = true,
+                    AsykAvailable = true,
+                    Category = _categoryAsyk.GetAllCategories.First()
+                    },
+                     new Asyk{
+                    AsykName = "МергенСоқыр",
+                    AsykShortDesc = "dolore magna aliqua. Ut enim ad minim veniam",
+                    AsykLongDesc = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                    AsykImage = "/AsykImage/2.jpg",
+                    AsykPrice = 421,
+                    isFavorAsyk = true,
+                    AsykAvailable = true,
+                    Category = _categoryAsyk.GetAllCategories.Last()
+                     },
+                     new Asyk{
+                    AsykName = "Жұмыр",
+                    AsykShortDesc = "Lorem ipsum dolor sit amet",
+                    AsykLongDesc = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ",
+                    AsykImage = "/AsykImage/3.jpg",//Url.Content( "~/AsykImage/МергенСоқыр.jpg" )
+                    AsykPrice = 511,
+                    isFavorAsyk = true,
+                    AsykAvailable = true,
+                    Category = _categoryAsyk.GetAllCategories.First()
+                    },
+                     new Asyk{
+                    AsykName = "СынықАсық",
+                    AsykShortDesc = "Excepteur sint occaecat cupidatat non proident",
+                    AsykLongDesc = "sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    AsykImage = "/AsykImage/4.jpg",
+                    AsykPrice = 447,
+                    isFavorAsyk = true,
+                    AsykAvailable = false,
+                    Category = _categoryAsyk.GetAllCategories.Last()
+                     },
+                     new Asyk{
+                    AsykName = "Ауыр",
+                    AsykShortDesc = "Excepteur sint occaecat cupidatat non proident",
+                    AsykLongDesc = "sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    AsykImage = "/AsykImage/5.jpg",
+                    AsykPrice = 600,
+                    isFavorAsyk = true,
+                    AsykAvailable = false,
+                    Category = _categoryAsyk.GetAllCategories.First()
+                     }
+                    };
+                }
+            }
+        public IEnumerable<Asyk> GetFavorAsyk { get; set; }
+
+        public Asyk GetAsykObject(int asykId)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
