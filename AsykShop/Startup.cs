@@ -17,7 +17,7 @@ namespace AsykShop
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddTransient<IAllAsyktar, MockAsyktar>();
             services.AddTransient<IAsyktarCategory, MockCategory>();
         }
@@ -25,10 +25,10 @@ namespace AsykShop
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
