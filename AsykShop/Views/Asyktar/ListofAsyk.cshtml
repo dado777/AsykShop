@@ -5,10 +5,10 @@
     foreach (var asyk in Model.getAllAsyktar)
    {
      <div class="col-lg-4">
-         <img src=" @asyk.AsykImage " alt="@asyk.AsykName"/>
+         <img class="img-thumbnail" src=" @asyk.AsykImage " alt="@asyk.AsykName"/>
          <h2>@asyk.AsykName</h2>
          <p>@asyk.AsykShortDesc</p>
-         <p>Бағасы: @asyk.AsykPrice.ToString()</p>
+         <p>Бағасы: @asyk.AsykPrice.ToString() ₸</p>
          <p><a class="btn btn-warning" href="#">Толығырақ</a></p>
      </div>
    }
