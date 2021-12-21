@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AsykShop.Core;
 using AsykShop.Core.Interfaces;
 using AsykShop.Core.Mocks;
+using AsykShop.Core.Models;
 using AsykShop.Core.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,9 +31,16 @@ namespace AsykShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
-            services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddTransient<IAllAsyktar, AsykRepository>();
             services.AddTransient<IAsyktarCategory, CategoryRepository>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => AsykShopCart.GetCart(sp));
+            
+            services.AddMvc();
+
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +49,7 @@ namespace AsykShop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             using (var context = app.ApplicationServices.CreateScope())

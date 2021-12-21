@@ -1,0 +1,12 @@
+﻿@model AsykShopCartViewModel
+<div class="container">
+    @foreach (var item in Model.AsyktarShopCart.ListAsykShopItems)
+    {
+        <div class="alert alert-warning mt-3">
+            <b>Асық:</b> @item.Asyktar.AsykName<br />
+            <b>Бағасы:</b> @item.Asyktar.AsykPrice.ToString() ₸
+        </div>
+    }
+    <hr />
+    <div class="btn btn-danger" asp-controller="Order">Төлеу</div>
+</div>
