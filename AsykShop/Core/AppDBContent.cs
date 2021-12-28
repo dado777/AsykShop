@@ -17,5 +17,7 @@ namespace AsykShop.Core
         public DbSet<Asyk> Asyk { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<AsykShopCartItem> AsykShopCartItem { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
     }
 }

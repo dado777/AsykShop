@@ -9,7 +9,9 @@ namespace AsykShop.Core.Models
     {
         public int Id { get; set; }
         public int Price { get; set; }
-        public string AsykShopCartId { get; set; }
+
+        public string AsykShopCartIdItem { get; set; }
+
         public Asyk Asyktar { get; set; }
     }
 }

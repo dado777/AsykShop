@@ -33,12 +33,12 @@ namespace AsykShop
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllAsyktar, AsykRepository>();
             services.AddTransient<IAsyktarCategory, CategoryRepository>();
+            services.AddTransient<IAllOrders, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => AsykShopCart.GetCart(sp));
             
             services.AddMvc();
-
             services.AddMemoryCache();
             services.AddSession();
         }

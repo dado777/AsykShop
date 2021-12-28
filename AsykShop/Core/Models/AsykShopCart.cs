@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +11,7 @@ namespace AsykShop.Core.Models
     public class AsykShopCart
     {
         private readonly AppDBContent _appDBContent;
-
+        
         public AsykShopCart(AppDBContent appDBContent)
         {
             _appDBContent = appDBContent;
@@ -33,14 +33,13 @@ namespace AsykShop.Core.Models
 
         public void AddToCart(Asyk asyk)
         {
-            _appDBContent.AsykShopCartItem.Add(new AsykShopCartItem { AsykShopCartId = AsykShopCartId, Asyktar = asyk, Price = asyk.AsykPrice});
-
+            _appDBContent.AsykShopCartItem.Add(new AsykShopCartItem { AsykShopCartIdItem = AsykShopCartId, Asyktar = asyk, Price = asyk.AsykPrice});
             _appDBContent.SaveChanges();
         }
 
         public List<AsykShopCartItem> GetAsykShopItems()
         {
-            return _appDBContent.AsykShopCartItem.Where(a => a.AsykShopCartId == AsykShopCartId).Include(a => a.Asyktar).ToList();
+            return _appDBContent.AsykShopCartItem.Where(i => i.AsykShopCartIdItem == AsykShopCartId).Include(a => a.Asyktar).ToList(); //Asyktar - null
         }
     }
 }

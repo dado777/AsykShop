@@ -4,14 +4,16 @@ using AsykShop.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsykShop.Migrations
 {
     [DbContext(typeof(AppDBContent))]
-    partial class AppDBContentModelSnapshot : ModelSnapshot
+    [Migration("20211227082119_Fixed_AsykShopCartIdItem2")]
+    partial class Fixed_AsykShopCartIdItem2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,13 +39,13 @@ namespace AsykShop.Migrations
 
                     b.Property<string>("AsykShortDesc");
 
-                    b.Property<int>("CategoryId");
+                    b.Property<int>("CategoryID");
 
                     b.Property<bool>("isFavorAsyk");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Asyk");
                 });
@@ -130,7 +132,7 @@ namespace AsykShop.Migrations
                 {
                     b.HasOne("AsykShop.Core.Models.Category", "Category")
                         .WithMany("asyktar")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

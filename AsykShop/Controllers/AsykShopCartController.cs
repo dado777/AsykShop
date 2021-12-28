@@ -22,14 +22,15 @@ namespace AsykShop.Controllers
 
         public ViewResult Index()
         {
-            var obj = new AsykShopCartViewModel { AsyktarShopCart = _asykShopCart };
             var items = _asykShopCart.GetAsykShopItems();
             _asykShopCart.ListAsykShopItems = items;
+
+            var obj = new AsykShopCartViewModel { AsyktarShopCart = _asykShopCart };
 
             return View(obj);
         }
 
-        public RedirectToActionResult AddToCart(int id)
+        public RedirectToActionResult AddToCartController(int id)
         {
             var item = _asykRepos.Asyktar.FirstOrDefault(i => i.Id == id);
 
