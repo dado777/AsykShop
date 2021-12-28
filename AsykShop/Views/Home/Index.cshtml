@@ -1,0 +1,11 @@
+﻿@model HomeViewModel
+
+<h1>Керемет асықтар</h1>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Asyk asyk in Model.FavouriteAsyktar)
+        {
+            @Html.Partial("AllAsyktar", asyk)
+        }
+    }
+</div>

@@ -1,16 +1,10 @@
 ﻿<h1>Барлық асықтар</h1>
 <h3>@Model.currentCategory</h3>
 <div class="row mt-5 mb-2">
-@{ 
-    foreach (var asyk in Model.getAllAsyktar)
-   {
-     <div class="col-lg-4">
-         <img src=" @asyk.AsykImage " alt="@asyk.AsykName"/>
-         <h2>@asyk.AsykName</h2>
-         <p>@asyk.AsykShortDesc</p>
-         <p>Бағасы: @asyk.AsykPrice.ToString()</p>
-         <p><a class="btn btn-warning" href="#">Толығырақ</a></p>
-     </div>
-   }
-}
+    @{ 
+        foreach (Asyk asyk in Model.getAllAsyktar)
+            {
+                @Html.Partial("AllAsyktar", asyk)    
+            }
+    }
 </div>

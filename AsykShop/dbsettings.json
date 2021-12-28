@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=AsykShop;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}

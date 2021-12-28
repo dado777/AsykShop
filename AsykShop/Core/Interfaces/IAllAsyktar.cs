@@ -10,7 +10,7 @@ namespace AsykShop.Core.Interfaces
     public interface IAllAsyktar
     {
         IEnumerable<Asyk> Asyktar { get; }
-        IEnumerable<Asyk> GetFavorAsyk { get; set; }
+        IEnumerable<Asyk> GetFavorAsyk { get; }
         Asyk GetAsykObject(int asykId);
     }
 }
