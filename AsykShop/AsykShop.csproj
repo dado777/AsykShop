@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\AsykImage\" />
-    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
   <ItemGroup>
