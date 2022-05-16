@@ -5,6 +5,10 @@
     {
         <img width="220" height="220" src='@Url.Action("GetAsykImage", "Asyk", new { asykId = Model.Id })' /> <!--second way to make it is: src="data:image;base64,@System.Convert.ToBase64String(Model.AsykImageData)"-->
     }
+    else
+    {
+        <img width="256" height="197" src='~/AsykImage/default.jpg' />
+    }
     <h2>@Model.AsykName</h2>
     <p>@Model.AsykShortDesc</p>
     <p>Бағасы: @Model.AsykPrice.ToString() ₸</p>
