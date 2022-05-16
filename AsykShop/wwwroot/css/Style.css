@@ -1,3 +1,19 @@
 ﻿body {
     background: #fcfcfc
 }
+
+i {
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.custom-medium-checkbox {
+    width: 25px;
+    height: 25px
+}

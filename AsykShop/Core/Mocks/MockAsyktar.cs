@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AsykShop.Core.Mocks
 {
-    public class MockAsyktar : IAllAsyktar
+    public class MockAsyktar
     {
         private readonly IAsyktarCategory _categoryAsyk = new MockCategory();
         public IEnumerable<Asyk> Asyktar {
@@ -20,7 +20,7 @@ namespace AsykShop.Core.Mocks
                     AsykName = "СоқырМерген",
                     AsykShortDesc = "Lorem ipsum dolor sit amet",
                     AsykLongDesc = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ",
-                    AsykImage = "/AsykImage/1.png",
+                    AsykImageMimeType = "/AsykImage/1.png",
                     AsykPrice = 589,
                     isFavorAsyk = true,
                     AsykAvailable = true,
@@ -30,7 +30,7 @@ namespace AsykShop.Core.Mocks
                     AsykName = "МергенСоқыр",
                     AsykShortDesc = "dolore magna aliqua. Ut enim ad minim veniam",
                     AsykLongDesc = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-                    AsykImage = "/AsykImage/2.png",
+                    AsykImageMimeType = "/AsykImage/2.png",
                     AsykPrice = 421,
                     isFavorAsyk = true,
                     AsykAvailable = true,
@@ -40,7 +40,7 @@ namespace AsykShop.Core.Mocks
                     AsykName = "Жұмыр",
                     AsykShortDesc = "Lorem ipsum dolor sit amet",
                     AsykLongDesc = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ",
-                    AsykImage = "/AsykImage/3.png",//Url.Content( "~/AsykImage/МергенСоқыр.jpg" )
+                    AsykImageMimeType = "/AsykImage/3.png",//Url.Content( "~/AsykImage/МергенСоқыр.jpg" )
                     AsykPrice = 511,
                     isFavorAsyk = true,
                     AsykAvailable = true,
@@ -50,7 +50,7 @@ namespace AsykShop.Core.Mocks
                     AsykName = "СынықАсық",
                     AsykShortDesc = "Excepteur sint occaecat cupidatat non proident",
                     AsykLongDesc = "sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    AsykImage = "/AsykImage/4.png",
+                    AsykImageMimeType = "/AsykImage/4.png",
                     AsykPrice = 447,
                     isFavorAsyk = true,
                     AsykAvailable = false,
@@ -60,7 +60,7 @@ namespace AsykShop.Core.Mocks
                     AsykName = "Ауыр",
                     AsykShortDesc = "Excepteur sint occaecat cupidatat non proident",
                     AsykLongDesc = "sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    AsykImage = "/AsykImage/5.png",
+                    AsykImageMimeType = "/AsykImage/5.png",
                     AsykPrice = 600,
                     isFavorAsyk = true,
                     AsykAvailable = false,
@@ -75,5 +75,6 @@ namespace AsykShop.Core.Mocks
         {
             throw new NotImplementedException();
         }
+
     }
 }

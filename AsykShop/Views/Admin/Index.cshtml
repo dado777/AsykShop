@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AsykShop.Core.Models.Asyk>
+
+@{
+    ViewData["Title"] = "Басқару тақтасы: өнімдер тізімі";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Асықтар тізімі</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th class="text-right">ИН</th>
+                <th>Атауы</th>
+                <th class="text-right">Бағасы</th>
+                <th class="text-center">Әрекеттер</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-right">@item.Id</td>
+                    <td>@Html.ActionLink(item.AsykName, "Edit", new { item.Id})</td>
+                    <td class="text-right">@item.AsykPrice.ToString() ₸</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("Delete", "Admin"))
+                        {
+                            @Html.Hidden("Id", item.Id)
+                            <input type="submit" class="btn btn-danger" value="Өшіру"/>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="card-footer">
+        <a href="/Admin/Create" class="btn btn-primary">Асықты құру</a>
+    </div>
+</div>

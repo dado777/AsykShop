@@ -1,6 +1,6 @@
 ﻿@model Order
 
-<h3>Оформление заказа</h3>
+<h3>Тапсырысты рәсімдеу</h3>
 
 <div style="margin-top: 40px">
 <div class="row mb-5">
@@ -11,36 +11,37 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName"></label>
+            <div class="col-md-25">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="LastName"></label>
-                <div class="col-md-25">
-                    <input asp-for="LastName" class="form-control" />
-                    <span asp-validation-for="LastName" class="text-danger"></span>
-                </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <div class="col-md-25">
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Address"></label>
-                <div class="col-md-25">
-                    <input asp-for="Address" class="form-control" />
-                    <span asp-validation-for="Address" class="text-danger"></span>
-                </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber"></label>
+            <div class="col-md-25">
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber"></label>
-                <div class="col-md-25">
-                    <input asp-for="PhoneNumber" class="form-control" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <div class="col-md-25">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <div class="col-md-25">
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-            </div>
-            <input class="btn btn-success" type="submit" value="Тапсырысты аяқтау" />
-        </form>
+        </div>
+        <input class="btn btn-success mr-5" type="submit" value="Тапсырысты аяқтау" />
+        <a href="/AsykShopCart/Index" class="btn btn-secondary">Рәсімдеуден бас тартып, себетке оралу</a>
+    </form>
     </div>
 </div>

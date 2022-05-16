@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace AsykShop.Controllers
 {
@@ -55,6 +55,16 @@ namespace AsykShop.Controllers
             ViewBag.Title = "Асықтар парақшасы";
             
             return View(asykObj);
+        }
+
+        public FileContentResult GetAsykImage(int asykId) //works any other identifier, but not "id" identifier. "id" identifier has 0 value, so Model.Id in AllAsyktar.cshtml assign nothing and image doesn't display
+        {
+            Asyk asyk = _iAllAsyktar.Asyktar.FirstOrDefault(a => a.Id == asykId);
+
+            if (asyk != null)
+                return File(asyk.AsykImageData, asyk.AsykImageMimeType);
+            else
+                return null;
         }
     }
 }

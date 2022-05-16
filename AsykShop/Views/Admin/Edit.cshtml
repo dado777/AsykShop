@@ -1,0 +1,99 @@
+﻿@model AsykShop.Core.Models.Asyk
+
+@{
+    ViewBag.Title = "Админ панель: редактирование товара";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Асықты өзгерту «@Model.AsykName»</h3>
+    </div>
+        <form asp-action="Edit" asp-controller="Admin" method="post" enctype="multipart/form-data" class="form-group">
+            <div class="card-body">
+                <div class="form-group">
+                    <strong><label asp-for="AsykName"></label></strong>
+                    <div class="col-md-25">
+                        <input asp-for="AsykName" class="form-control" />
+                        <span asp-validation-for="AsykName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="AsykShortDesc"></label></strong>
+                    <div class="col-md-25">
+                        <input asp-for="AsykShortDesc" class="form-control" />
+                        <span asp-validation-for="AsykShortDesc" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="AsykLongDesc"></label></strong>
+                    <div class="col-md-25">
+                        <input asp-for="AsykLongDesc" class="form-control" />
+                        <span asp-validation-for="AsykLongDesc" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="CategoryId"></label></strong>
+                    <div class="col-md-25">
+                        <select class="form-control" id="CategoryId" name="CategoryId" asp-for="CategoryId">
+                            <option value="1">Сақа</option>
+                            <option value="2">Кеней</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="AsykPrice"></label></strong>
+                    <div class="col-md-25">
+                        <input asp-for="AsykPrice" class="form-control" />
+                        <span asp-validation-for="AsykPrice" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="AsykImageData"></label></strong>
+                    <div class="col-md-25">
+                        <div class="custom-file">
+                            <input asp-for="AsykImageData" type="file" name="image" id="imageFile" class="custom-file-input" />
+                            <label class="custom-file-label" for="imageFile" data-browse="Шолу">Суретін таңдаңыз...</label>
+                            <span asp-validation-for="AsykImageData" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="form-group"> delete comment if you want to display image none dynamically!
+                    <div class="col-md-25">
+                        @if (Model.AsykImageData == null)
+                            {
+                                <div class="form-control-static">Сурет жоқ</div>
+                            }
+                        else
+                            {
+                                <img class="img-thumbnail" width="200" height="200" style="border:groove" src="@Url.Action("GetAsykImage", "Asyk", new { asykId = Model.Id })" />
+                            }
+                    </div>
+                </div>*@
+                <div class="form-group">
+                    <div class="col-md-25">
+                        <div id="imagePreview" class="img-thumbnail" style="display: none">
+                            <img class="img-thumbnail" id="loadImage" width="200" height="200" />
+                            <span id="imageDescription"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="AsykAvailable"></label></strong>
+                    <div class="col-sm-10">
+                        <input asp-for="AsykAvailable" class="custom-medium-checkbox" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <strong><label asp-for="isFavorAsyk"></label></strong>
+                    <div class="col-sm-10">
+                        <input asp-for="isFavorAsyk" class="custom-medium-checkbox" />
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <input class="btn btn-success mr-5" id="SaveButton" type="submit" value="Сақтау" />
+                <a href="/Admin/Index" class="btn btn-secondary">Өзгертуден бас тартып, тізімге оралу</a>
+            </div>
+        </form>
+    </div>

@@ -12,5 +12,8 @@ namespace AsykShop.Core.Interfaces
         IEnumerable<Asyk> Asyktar { get; }
         IEnumerable<Asyk> GetFavorAsyk { get; }
         Asyk GetAsykObject(int asykId);
+
+        void SaveAsyk(Asyk asyk);
+        Asyk DeleteAsyk(int asykId);
     }
 }
