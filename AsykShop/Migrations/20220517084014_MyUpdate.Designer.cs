@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AsykShop.Migrations
 {
     [DbContext(typeof(AppDBContent))]
-    [Migration("20211227081833_Fixed_AsykShopCartIdItem1")]
-    partial class Fixed_AsykShopCartIdItem1
+    [Migration("20220517084014_MyUpdate")]
+    partial class MyUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,15 +29,20 @@ namespace AsykShop.Migrations
 
                     b.Property<bool>("AsykAvailable");
 
-                    b.Property<string>("AsykImage");
+                    b.Property<byte[]>("AsykImageData");
 
-                    b.Property<string>("AsykLongDesc");
+                    b.Property<string>("AsykImageMimeType");
 
-                    b.Property<string>("AsykName");
+                    b.Property<string>("AsykLongDesc")
+                        .IsRequired();
+
+                    b.Property<string>("AsykName")
+                        .IsRequired();
 
                     b.Property<int>("AsykPrice");
 
-                    b.Property<string>("AsykShortDesc");
+                    b.Property<string>("AsykShortDesc")
+                        .IsRequired();
 
                     b.Property<int>("CategoryId");
 
@@ -90,17 +95,27 @@ namespace AsykShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(25);
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(25);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(25);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(25);
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("PhoneNumber");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(12);
 
                     b.HasKey("Id");
 

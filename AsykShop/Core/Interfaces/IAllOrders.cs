@@ -9,5 +9,6 @@ namespace AsykShop.Core.Interfaces
     public interface IAllOrders
     {
         void CreateOrder(Order order);
+        AsykShopCartItem DeleteAsykFromCart(int asykCartId);
     }
 }

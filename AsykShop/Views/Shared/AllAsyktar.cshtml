@@ -3,7 +3,7 @@
 <div class="col-lg-4">
     @if (Model.AsykImageData != null)
     {
-        <img width="220" height="220" src='@Url.Action("GetAsykImage", "Asyk", new { asykId = Model.Id })' /> <!--second way to make it is: src="data:image;base64,@System.Convert.ToBase64String(Model.AsykImageData)"-->
+        <img width="256" height="197" src='@Url.Action("GetAsykImage", "Asyk", new { asykId = Model.Id })' /> <!--second way to make it is: src="data:image;base64,@System.Convert.ToBase64String(Model.AsykImageData)"-->
     }
     else
     {

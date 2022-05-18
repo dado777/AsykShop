@@ -1,12 +1,28 @@
 ﻿@model AsykShopCartViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
 <div class="container mt-5">
     @foreach (var item in Model.AsyktarShopCart.ListAsykShopItems)
     {
-    <div class="alert alert-warning mt-3">
-        <b>Асық:</b> @item.Asyktar.AsykName<br />
-        <b>Бағасы:</b> @item.Asyktar.AsykPrice.ToString() ₸
-    </div>
-     }
+        <div class="alert alert-success p-sm-4">
+            <b>Асық:</b> @item.Asyktar.AsykName<br />
+            <b>Бағасы:</b> @item.Asyktar.AsykPrice.ToString() ₸
+            <b class="float-right">
+                @using (Html.BeginForm("Delete", "AsykShopCart"))
+                {
+                    @Html.Hidden("idCartContent", item.Id)
+                    <input type="submit" class="btn btn-danger" value="Өшіру" />
+                }
+            </b>
+        </div>
+    }
     <hr />
-    <a class="btn btn-danger mb-5" asp-controller="Order" asp-action="Checkout">Төлеу</a>
+    @if (Model.AsyktarShopCart.ListAsykShopItems.Count != 0)
+    {
+        <a class="btn btn-success mb-5" asp-controller="Order" asp-action="Checkout">Төлеу</a>
+    }
+    <a href="/Asyktar/List" class="btn btn-primary float-right">Барлық тауарға қайту</a>
 </div>

@@ -40,5 +40,19 @@ namespace AsykShop.Core.Repository
 
             _appDBContent.SaveChanges();
         }
+
+        public AsykShopCartItem DeleteAsykFromCart(int asykCartId)
+        {
+            AsykShopCartItem cartContent = _appDBContent.AsykShopCartItem.Find(asykCartId);
+
+            if(cartContent != null)
+            {
+                _appDBContent.AsykShopCartItem.Remove(cartContent);
+                _appDBContent.SaveChanges();
+            }
+
+            return cartContent;
+
+        }
     }
 }

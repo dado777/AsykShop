@@ -27,7 +27,9 @@ namespace AsykShop.Migrations
 
                     b.Property<bool>("AsykAvailable");
 
-                    b.Property<string>("AsykImage");
+                    b.Property<byte[]>("AsykImageData");
+
+                    b.Property<string>("AsykImageMimeType");
 
                     b.Property<string>("AsykLongDesc")
                         .IsRequired();
