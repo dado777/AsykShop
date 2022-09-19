@@ -17,7 +17,7 @@
             <a class="p-2 text-dark" href="/Asyktar/List/Saka">Сақа асықтар</a>
             <a class="p-2 text-dark" href="/AsykShopCart/">Себет</a>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Тіркелу</a>
+        <partial name="_LoginPartial" />
     </div>
     <div class="container mt-5">
         @RenderBody()
@@ -28,5 +28,7 @@
         <p>© 2022 Ауыл. : <a href="#">Құпиялылық саясаты</a> : <a href="#">Байланыс ақпараттары</a></p>
     </footer>
     <script scr="~/js/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+    @RenderSection("Styles", required: false)
 </body>
 </html>
