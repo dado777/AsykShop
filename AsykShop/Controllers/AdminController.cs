@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AsykShop.Controllers
 {
@@ -16,11 +17,13 @@ namespace AsykShop.Controllers
             this.repository = repository;
         }
 
+        [Authorize]
         public ViewResult Index()
         {
             return View(repository.Asyktar);
         }
 
+        [Authorize]
         public ViewResult Edit(int id) //works only with "id" identifier, any other identifier (example: asykId or asykid) throw null exception
         {
             Asyk asyk = repository.Asyktar.FirstOrDefault(a => a.Id == id);
@@ -29,6 +32,7 @@ namespace AsykShop.Controllers
         }
 
         // The version of overloaded method Edit() needs for changings in item(asyk good)
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(Asyk asyk, IFormFile image)
         {
@@ -55,11 +59,13 @@ namespace AsykShop.Controllers
             }
         }
 
+        [Authorize]
         public ViewResult Create()
         {
             return View("Edit", new Asyk());
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Delete(int id)
         {

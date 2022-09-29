@@ -37,12 +37,12 @@ namespace AsykShop.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Display(Name = "Электрондық пошта")]
-            [Required(ErrorMessage = "Электрондық пошта дұрыс толтырылған жоқ!")]
+            [Required(ErrorMessage = "Электрондық пошта толтырылған жоқ!")]
             [EmailAddress]
             public string Email { get; set; }
 
             [Display(Name = "Құпия сөз")]
-            [Required(ErrorMessage = "Құпия сөз дұрыс толтырылған жоқ!")]
+            [Required(ErrorMessage = "Құпия сөз толтырылған жоқ!")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
@@ -75,7 +75,7 @@ namespace AsykShop.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -88,15 +88,13 @@ namespace AsykShop.Areas.Identity.Pages.Account
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
+                    ModelState.AddModelError(String.Empty, "Әкімші тіркелгісі уақытша бұғатталды, кейінірек қайталап көріңіз!");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
+                    ModelState.AddModelError(String.Empty, "Электрондық пошта немесе құпия сөз дұрыс толтырылған жоқ!");
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return Page();
         }

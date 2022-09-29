@@ -10,6 +10,7 @@ using AsykShop.Core.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,6 +42,13 @@ namespace AsykShop
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
+
+            // Identity lock out options
+            services.Configure<IdentityOptions>(option =>
+            {
+                option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1); //  Add lock out duration here
+                option.Lockout.MaxFailedAccessAttempts = 5; // Add count of your attempts here
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +56,7 @@ namespace AsykShop
         {
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseSession();
             //app.UseMvcWithDefaultRoute();
