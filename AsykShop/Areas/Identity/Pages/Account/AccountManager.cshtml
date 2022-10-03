@@ -4,25 +4,25 @@
 @{
     ViewData["Title"] = "Кіру";
 }
-<h2>Manage your accsdadount</h2>
+<h2>Әкімші жазбаңызды басқарыңыз</h2>
 
 <div>
-    <h4>Change your account settings</h4>
+    <h4>Тіркелгі параметрлерін өзгертіңіз</h4>
     <hr />
     <div class="row">
-        <div class="col-md-3">
+        <div class="row-cols-2">
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a id="profile" href="/Identity/Account/Manage">Profile</a></li>
-                <li><a id="change-password" href="/Identity/Account/Manage/ChangePassword">Password</a></li>
-                <li><a id="two-factor" href="/Identity/Account/Manage/TwoFactorAuthentication">Two-factor authentication</a></li>
-                <li><a id="personal-data" href="/Identity/Account/Manage/PersonalData">Personal data</a></li>
+                <li class="active"><a id="profile" href="/Identity/Account/AccountManager">Профиль</a></li>
+                <li><a id="change-password" href="/Identity/Account/ChangePassword">Құпия сөз</a></li>
+                <!--<li><a id="two-factor" href="/Identity/Account/Manage/TwoFactorAuthentication">Two-factor authentication</a></li>-->
+                <li><a id="personal-data" href="/Admin/Index">Басқару тақтасы</a></li>
             </ul>
 
         </div>
         <div class="col-md-9">
 
 
-            <h4>Profile</h4>
+            <h4>Профиль</h4>
 
 
             <div class="row">
@@ -34,21 +34,21 @@
                             </ul>
                         </div>
                         <div class="form-group">
-                            <label for="Username">Username</label>
+                            <label for="Username">Пайдаланушының аты</label>
                             <input class="form-control" disabled type="text" id="Username" name="Username" value="admin@mail.com" />
                         </div>
                         <div class="form-group">
-                            <label for="Input_Email">Email</label>
+                            <label for="Input_Email">Электронды пошта</label>
                             <input class="form-control" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="admin@mail.com" />
-                            <button id="email-verification" type="submit" class="btn btn-link" formaction="/Identity/Account/Manage?handler=SendVerificationEmail">Send verification email</button>
+                            <!--<button id="email-verification" type="submit" class="btn btn-link" formaction="/Identity/Account/Manage?handler=SendVerificationEmail">Растау электрондық поштасын жіберіңіз</button>-->
                             <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
                         </div>
                         <div class="form-group">
-                            <label for="Input_PhoneNumber">Phone number</label>
+                            <label for="Input_PhoneNumber">Телефон нөмірі</label>
                             <input class="form-control" type="tel" data-val="true" data-val-phone="The Phone number field is not a valid phone number." id="Input_PhoneNumber" name="Input.PhoneNumber" value="" />
                             <span class="text-danger field-validation-valid" data-valmsg-for="Input.PhoneNumber" data-valmsg-replace="true"></span>
                         </div>
-                        <button id="update-profile-button" type="submit" class="btn btn-default">Save</button>
+                        <button id="update-profile-button" type="submit" class="btn btn-success">Сақтау</button>
                         <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PG1VA5IFedNidmcqu-buI1YbsDQCdvgO2eXFrEZh_YyzGuiaTRzIKiCsh7rW86cU5PwrMXlN351jGHAVy5LyF3Iw_QmAqwAGnyDKXddw0u3haoyN2EB8d4-5rIijD7hs7_QROA9cA70YeCZr0pNCwW3bFzWTHP-JFWmGJMN1J89jNHGyhHwqf3ckV4eVQALdg" />
                     </form>
                 </div>
